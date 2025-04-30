@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Event Ease</title>
+    <link rel="stylesheet" href="sign.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h2>Create Account</h2>
+            <p class="subtitle">Join Event Ease to start planning your perfect event</p>
+            <form id="signup-form">
+                <div class="input-group">
+                    <label for="fullname">Full Name</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="fullname" name="fullname" required placeholder="Enter your full name">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" name="email" required placeholder="Enter your email">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" name="password" required placeholder="Create a password">
+                    </div>
+                    <div class="password-strength">
+                        <div class="strength-bar"></div>
+                        <span class="strength-text">Password strength</span>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="confirm-password" name="confirm-password" required placeholder="Confirm your password">
+                    </div>
+                </div>
+                <div class="terms-group">
+                    <label class="terms-checkbox">
+                        <input type="checkbox" name="terms" id="terms" required>
+                        <span>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span>
+                    </label>
+                </div>
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-user-plus"></i> Create Account
+                </button>
+                <div class="social-signup">
+                    <p>Or sign up with</p>
+                    <div class="social-buttons">
+                        <button type="button" class="social-btn google" onclick="handleGoogleSignUp()">
+                            <i class="fab fa-google"></i> Google
+                        </button>
+                        <button type="button" class="social-btn facebook" onclick="handleFacebookSignUp()">
+                            <i class="fab fa-facebook-f"></i> Facebook
+                        </button>
+                    </div>
+                </div>
+                <p class="login-link">Already have an account? <a href="signin.html">Sign In</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Social Signup Modal -->
+    <div id="socialSignupModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Social Sign Up</h3>
+            <div class="modal-body">
+                <p>You will be redirected to <span id="providerName">Google</span> to complete the sign-up process.</p>
+                <div class="loading-spinner">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <span>Connecting to <span id="loadingProvider">Google</span>...</span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="cancel-btn">Cancel</button>
+                <button class="continue-btn">Continue</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Modal handling
+        const modal = document.getElementById('socialSignupModal');
+        const closeModal = document.querySelector('.close-modal');
+        const cancelBtn = document.querySelector('.cancel-btn');
+        const continueBtn = document.querySelector('.continue-btn');
+        let currentProvider = '';
+
+        function showModal(provider) {
+            currentProvider = provider;
+            document.getElementById('providerName').textContent = provider;
+            document.getElementById('loadingProvider').textContent = provider;
+            modal.style.display = 'block';
+        }
+
+        function hideModal() {
+            modal.style.display = 'none';
+        }
+
+        closeModal.onclick = hideModal;
+        cancelBtn.onclick = hideModal;
+        continueBtn.onclick = function() {
+            // Show loading state
+            document.querySelector('.loading-spinner').style.display = 'flex';
+            document.querySelector('.modal-body p').style.display = 'none';
+            
+            // Simulate API call delay
+            setTimeout(() => {
+                // Store user data in localStorage
+                const userData = {
+                    email: 'user@' + currentProvider.toLowerCase() + '.com',
+                    name: 'User'
+                };
+                localStorage.setItem('userData', JSON.stringify(userData));
+                window.location.href = 'index3.html';
+            }, 2000);
+        };
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                hideModal();
+            }
+        };
+
+        // Handle form submission
+        document.getElementById('signup-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const fullname = document.getElementById('fullname').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            
+            // Basic validation
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+            
+            // Store user data in localStorage
+            const userData = {
+                name: fullname,
+                email: email
+            };
+            localStorage.setItem('userData', JSON.stringify(userData));
+            
+            // Redirect to the main page
+            window.location.href = 'index3.html';
+        });
+
+        function handleGoogleSignUp() {
+            showModal('Google');
+        }
+
+        function handleFacebookSignUp() {
+            showModal('Facebook');
+        }
+    </script>
+</body>
+</html> 

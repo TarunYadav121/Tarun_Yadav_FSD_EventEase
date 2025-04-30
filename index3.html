@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Ease - Find Event Planners</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="logo">Event Ease</h1>
+            <ul class="nav-links">
+                <li><a href="#home" class="smooth-scroll">Home</a></li>
+                <li><a href="#services" class="smooth-scroll">Services</a></li>
+                <li><a href="#search-results-section" class="smooth-scroll">Find Planners</a></li>
+                <li><a href="#testimonials" class="smooth-scroll">Testimonials</a></li>
+                <li><a href="#contact" class="smooth-scroll">Contact</a></li>
+                <li><a href="signin.html" class="auth-btn" style="background-color: #007bff; color: white; padding: 8px 15px; border-radius: 5px; text-decoration: none;">Sign In</a></li>
+                <li><a href="signup.html" class="auth-btn" style="background-color: #007bff; color: white; padding: 8px 15px; border-radius: 5px; text-decoration: none;">Sign Up</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <header id="home" class="hero">
+        <div class="hero-content">
+            <h2>Find the perfect event planner for your special occasion</h2>
+            <p>We connect you with top-rated event planners specializing in weddings, corporate events, birthdays, and more.</p>
+            <form id="search-form" class="search-box">
+                <div class="form-group">
+                    <label for="event-type">Event Type</label>
+                    <select id="event-type" required>
+                        <option value="" disabled selected>Select Event Type</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <select id="location" required>
+                        <option value="" disabled selected>Select Location</option>
+                        <option value="Faridabad">Faridabad</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Gurgaon">Gurgaon</option>
+                        <option value="Noida">Noida</option>
+                        <option value="Mumbai">Mumbai</option>
+                        <option value="Bangalore">Bangalore</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="budget">Budget (₹) (Optional)</label>
+                    <input type="number" id="budget" placeholder="Enter amount" min="5000" step="1000">
+                    <small class="helper-text">Leave empty to see all planners regardless of budget</small>
+                </div>
+                
+                <button type="submit" class="search-btn">Find Planners</button>
+            </form>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <h2>Our Services</h2>
+        <div class="service-cards">
+            <div class="card">
+                <h3>Weddings</h3>
+                <p>From intimate ceremonies to grand celebrations, we have the perfect planners for your dream wedding.</p>
+            </div>
+            <div class="card">
+                <h3>Corporate Events</h3>
+                <p>Plan successful corporate events, conferences, and team-building activities with our expert planners.</p>
+            </div>
+            <div class="card">
+                <h3>Birthdays</h3>
+                <p>Make your birthday celebrations extra special with our creative and experienced planners.</p>
+            </div>
+            <div class="card">
+                <h3>Social Gatherings</h3>
+                <p>Create memorable social events with our professional planners who understand your unique needs.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Results Section -->
+    <section id="search-results-section" class="search-results-section">
+        <h2>Event Planners in <span id="selected-location">:</span></h2>
+        <div id="search-results" class="search-results">
+            <!-- Results will be populated by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials-section">
+        <h2>What Our Clients Say</h2>
+        <div class="testimonial-cards">
+            <div class="testimonial">
+                <p>"Event Ease helped me find the perfect wedding planner. Our wedding day was absolutely perfect!"</p>
+                <h4>- Priya Sharma</h4>
+            </div>
+            <div class="testimonial">
+                <p>"The corporate event planner we found through Event Ease exceeded all our expectations. Highly recommended!"</p>
+                <h4>- Raj Malhotra, CEO</h4>
+            </div>
+            <div class="testimonial">
+                <p>"My daughter's birthday party was amazing thanks to the planner we found here. Will definitely use again!"</p>
+                <h4>- Neha Kapoor</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <h2>Contact Us</h2>
+        <form class="contact-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Event Ease</h3>
+                <p>Connecting you with exceptional event planners since 2022.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <div class="footer-links">
+                    <a href="#home" class="smooth-scroll">Home</a>
+                    <a href="#services" class="smooth-scroll">Services</a>
+                    <a href="#search-results-section" class="smooth-scroll">Find Planners</a>
+                    <a href="#testimonials" class="smooth-scroll">Testimonials</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p>Email: info@eventease.com</p>
+                <p>Phone: +91 98765 43210</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2023 Event Ease. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script3.js"></script>
+</body>
+</html> 
