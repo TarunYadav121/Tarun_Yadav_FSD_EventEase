@@ -95,7 +95,7 @@ function checkUserLoginStatus() {
 
 async function loadEventTypes() {
   try {
-    const response = await fetch('http://localhost:3000/api/event-types');
+    const response = await fetch('/api/event-types');
     if (!response.ok) {
       throw new Error('Failed to fetch event types');
     }
@@ -137,7 +137,7 @@ async function loadEventTypes() {
 async function loadDefaultPlanners() {
   try {
     // Load all planners with default location
-    const response = await fetch('http://localhost:3000/api/event-planners');
+    const response = await fetch('/api/event-planners');
     if (!response.ok) {
       throw new Error('Failed to fetch planners');
     }
@@ -183,7 +183,7 @@ async function handleSearch(event) {
   const budget = document.getElementById('budget').value;
   
   try {
-    const response = await fetch(`http://localhost:3000/api/search-planners?event_type=${eventType}&location=${location}`);
+    const response = await fetch(`/api/search-planners?event_type=${eventType}&location=${location}`);
     if (!response.ok) {
       throw new Error('Search request failed');
     }
