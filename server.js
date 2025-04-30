@@ -1,12 +1,15 @@
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static('.')); // Serve static files from current directory
+
+// Serve static files - improved for Vercel deployment
+app.use(express.static(__dirname));
 
 // Sample data - event planners
 const eventPlanners = [
@@ -226,6 +229,11 @@ app.get('/api/search-planners', (req, res) => {
     }
     
     res.json(filteredPlanners);
+});
+
+// Fallback route for serving index.html
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index3.html'));
 });
 
 // Start server
