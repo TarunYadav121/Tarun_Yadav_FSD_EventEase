@@ -930,3 +930,52 @@ footer {
     margin-top: 0.3rem;
     font-style: italic;
 }
+
+/* Mobile Navigation Styles */
+@media screen and (max-width: 768px) {
+  .navbar .nav-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .navbar .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  .navbar .nav-links.show {
+    display: flex;
+  }
+  
+  .navbar .nav-links li {
+    margin: 10px 0;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .navbar .menu-toggle {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .auth-btn {
+    margin-top: 5px;
+    width: 100%;
+    text-align: center;
+    display: block;
+  }
+}
+
+/* Add this to your existing CSS */
+.menu-toggle {
+  display: none;
+}
