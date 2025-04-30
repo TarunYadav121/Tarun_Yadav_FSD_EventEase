@@ -32,6 +32,22 @@
   ],
   "routes": [
     {
+      "src": "/script3.js",
+      "dest": "/script3.js"
+    },
+    {
+      "src": "/script2.js",
+      "dest": "/script2.js"
+    },
+    {
+      "src": "/styles.css",
+      "dest": "/styles.css"
+    },
+    {
+      "src": "/sign.css",
+      "dest": "/sign.css"
+    },
+    {
       "src": "/api/(.*)",
       "dest": "/server.js"
     },
