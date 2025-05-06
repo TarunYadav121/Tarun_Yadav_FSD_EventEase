@@ -8,7 +8,7 @@ Event Ease is a web application that helps users find event planners for various
 - View detailed information about each event planner
 - Contact event planners directly
 - Responsive design for mobile and desktop
->📷 Video Link []
+>📷 Video Link [https://drive.google.com/file/d/1nwRjhOnBhMzcFZpFvlVQPOktOsvBRWcC/view?usp=drive_link]
 
 ## Technologies Used
 
